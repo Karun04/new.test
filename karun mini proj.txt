@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+int main()
+{    FILE *body_mass_index;
+    
+    float height,weight,bmi;
+    
+    char user[20];
+    
+    body_mass_index=fopen("BODY_MASS_INDEX.txt","w");
+    
+    printf("Enter the name of user\n");
+    scanf("%s",user);
+    
+    printf("Enter height in meter\n");
+    scanf("%f",&height);
+    
+    printf("Enter weight in kg\n");
+    scanf("%f",&weight);
+    
+    bmi = weight / (height * height);
+    printf("Your Body Mass Index(BMI)is %f\n ",bmi);
+    
+    if(bmi < 15)
+    {
+        printf("Your BMI categroy is: Starvation\n");
+    }
+    else if (bmi >= 15.1 && bmi <= 17.5)
+    {
+        printf("Your BMI categroy is: Anorexic\n");
+    }
+    else if (bmi >= 17.6 && bmi <= 18.5)
+    {
+        printf("Your BMI categroy is: Underweight\n");
+    }
+    else if (bmi >= 18.6 && bmi <= 24.9)
+    {
+        printf("Your BMI categroy is: Ideal\n");
+    }
+    else if (bmi >= 25 && bmi <= 25.9 )
+    {
+        printf("Your BMI categroy is: Overweight\n");
+    }
+    else if (bmi >= 30 && bmi <= 30.9)
+    {
+        printf("Your BMI categroy is: Obese\n");
+    }
+    else if (bmi >=40)
+    {
+        printf("Your BMI categroy is: Morbidly Obese\n");
+    }
+    else
+    {
+        printf ("Wrong entry\n");
+    }
+     fprintf(body_mass_index,"*BODY MASS INDEX CALCULATOR*\n");
+     fprintf(body_mass_index,"The given height is %f and given weight is %f ",height,weight);
+     fprintf(body_mass_index,"\nThe body mass index of given user %s is",user);
+     fprintf(body_mass_index,"\n%f",bmi);
+     fclose(body_mass_index);
+    return 0;
+}
